@@ -7,7 +7,8 @@ app.listen(3400, () => {
 });
 
 
-const sendingMailUsingNodeMailer = async () => {
+// gmail account emailing
+const sendingMailUsingNodeMailerGmail = async () => {
   try {
     const transporter = nodemailer.createTransport({
       service: "Gmail",
@@ -30,4 +31,32 @@ const sendingMailUsingNodeMailer = async () => {
   }
 };
 
-sendingMailUsingNodeMailer()
+// cpanel emailing
+const sendingMailUsingNodeMailerCpanel = async () => {
+  try {
+    const transporter = nodemailer.createTransport({
+      host: "mail.kvnbco.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "yamakalyan@kvnbco.com",
+        pass: "Kalyankn3120",
+      },
+    });
+
+    const mailOptions = {
+      from: "yamakalyan@kvnbco.com",
+      to: "yamakalyan6@gmail.com",
+      subject: "Test Email",
+      text: "Hello, this is a test email!",
+    };
+    const mail = await transporter.sendMail(mailOptions);
+    console.log(mail.response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
+sendingMailUsingNodeMailerCpanel()
+sendingMailUsingNodeMailerGmail()
