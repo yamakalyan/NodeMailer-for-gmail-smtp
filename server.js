@@ -39,14 +39,14 @@ const sendingMailUsingNodeMailerCpanel = async () => {
       port: 465,
       secure: true,
       auth: {
-        user: "yamakalyan@kvnbco.com",
-        pass: "Kalyankn3120",
+          user: "youremail@gmail.com",
+        pass: "application generated password",
       },
     });
 
     const mailOptions = {
-      from: "yamakalyan@kvnbco.com",
-      to: "yamakalyan6@gmail.com",
+   from: "sending@gmail.com",
+      to: "sendto@gmail.com",
       subject: "Test Email",
       text: "Hello, this is a test email!",
     };
